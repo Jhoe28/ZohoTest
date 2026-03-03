@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Demo</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: #f4f1ec;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .form-wrapper {
+      background: #fff;
+      max-width: 560px;
+      width: 100%;
+      padding: 48px 48px 40px;
+      border: 1px solid #d8d2c8;
+      box-shadow: 6px 6px 0 #d8d2c8;
+    }
+
+    .form-title {
+      font-size: 26px;
+      font-weight: normal;
+      letter-spacing: 0.02em;
+      color: #1a1a1a;
+      margin: 0 0 8px;
+    }
+
+    .form-subtitle {
+      font-size: 13px;
+      color: #888;
+      font-family: Arial, sans-serif;
+      margin: 0 0 36px;
+    }
+
+    .form-row {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 11px;
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #555;
+      margin-bottom: 6px;
+    }
+
+    label .required {
+      color: #c0392b;
+      margin-left: 2px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 0;
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+      color: #1a1a1a;
+      background: #fff;
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    select:focus {
+      border-color: #1a1a1a;
+    }
+
+    .select-wrapper {
+      position: relative;
+    }
+
+    .select-wrapper::after {
+      content: '▾';
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: #888;
+      font-size: 14px;
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 32px;
+      align-items: center;
+    }
+
+    button[type="submit"] {
+      background: #1a1a1a;
+      color: #fff;
+      border: none;
+      padding: 12px 28px;
+      font-size: 13px;
+      font-family: Arial, sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button[type="submit"]:hover { background: #333; }
+    button[type="submit"]:disabled { background: #999; cursor: not-allowed; }
+
+    button[type="reset"] {
+      background: none;
+      border: 1px solid #ccc;
+      color: #888;
+      padding: 12px 20px;
+      font-size: 13px;
+      font-family: Arial, sans-serif;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    button[type="reset"]:hover { border-color: #888; color: #444; }
+
+    /* Success banner */
+    .success-banner {
+      display: none;
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #f5faf5;
+      border: 1px solid #a9d3ab;
+      border-radius: 6px;
+      padding: 12px 20px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      color: #132c14;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 9999;
+    }
+
+    .success-icon {
+      width: 20px;
+      height: 20px;
+      background: #12aa67;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .success-icon::after {
+      content: '';
+      width: 5px;
+      height: 9px;
+      border-right: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      transform: rotate(45deg) translate(-1px, -1px);
+      display: block;
+    }
+
+    @media (max-width: 480px) {
+      .form-wrapper { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Success banner -->
+  <div class="success-banner" id="successBanner">
+    <div class="success-icon"></div>
+    <span id="successMessage">Your demo has been booked!</span>
+  </div>
+
+  <div class="form-wrapper">
+    <h1 class="form-title">Book a Demo</h1>
+    <p class="form-subtitle">Fill in your details and we'll be in touch shortly.</p>
+
+    <form id="webform7257335000000749663" name="WebToLeads7257335000000749663" accept-charset="UTF-8">
+
+      <!-- Hidden Zoho fields -->
+      <input type="hidden" name="xnQsjsdp" value="2fdad0b09a4e66ea8735cf428299c23c82649bbb0d1c859f211f43a332c09b9e">
+      <input type="hidden" name="zc_gad" id="zc_gad" value="">
+      <input type="hidden" name="xmIwtLD" value="5ccc907ed9532f71ef76ae9891a640fd053f31180d5ef08a3bb171bce2dd9a167d5a4fd9ba6c6d7152022fac05d6d7da">
+      <input type="hidden" name="actionType" value="TGVhZHM=">
+      <input type="hidden" name="returnURL" value="null">
+      <input type="hidden" name="Lead Source" value="Web Research">
+      <input type="hidden" name="LEADCF3" value="None">
+      <input type="hidden" name="LEADCF4" value="None">
+      <input type="hidden" name="LEADCF5" value="None">
+      <input type="hidden" name="LEADCF6" value="None">
+      <input type="hidden" name="LEADCF7" value="None">
+      <input type="hidden" name="Lead Status" value="Demo requested">
+      <input type="hidden" name="aG9uZXlwb3Q" value="">
+
+      <!-- First Name -->
+      <div class="form-row">
+        <label for="First_Name">First Name <span class="required">*</span></label>
+        <input type="text" id="First_Name" name="First Name" maxlength="40" required aria-required="true">
+      </div>
+
+      <!-- Last Name -->
+      <div class="form-row">
+        <label for="Last_Name">Last Name <span class="required">*</span></label>
+        <input type="text" id="Last_Name" name="Last Name" maxlength="80" required aria-required="true">
+      </div>
+
+      <!-- Email -->
+      <div class="form-row">
+        <label for="Email">Email Address <span class="required">*</span></label>
+        <input type="email" id="Email" name="Email" maxlength="100" autocomplete="off" required aria-required="true">
+      </div>
+
+      <!-- Phone -->
+      <div class="form-row">
+        <label for="Phone">Phone No <span class="required">*</span></label>
+        <input type="tel" id="Phone" name="Phone" maxlength="30" required aria-required="true">
+      </div>
+
+      <!-- Property Type -->
+      <div class="form-row">
+        <label for="LEADCF2">Property Type <span class="required">*</span></label>
+        <div class="select-wrapper">
+          <select id="LEADCF2" name="LEADCF2" required aria-required="true">
+            <option value="-None-">-None-</option>
+            <option value="Residential">Residential</option>
+            <option value="Commercial">Commercial</option>
+            <option value="Industrial">Industrial</option>
+            <option value="Mixed Use">Mixed Use</option>
+            <option value="Hospitality">Hospitality</option>
+            <option value="Healthcare">Healthcare</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Company -->
+      <div class="form-row">
+        <label for="Company">Company Name <span class="required">*</span></label>
+        <input type="text" id="Company" name="Company" maxlength="200" required aria-required="true">
+      </div>
+
+      <!-- Actions -->
+      <div class="form-actions">
+        <button type="submit" id="submitBtn">Book a Demo</button>
+        <button type="reset">Reset</button>
+      </div>
+
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('webform7257335000000749663');
+    const submitBtn = document.getElementById('submitBtn');
+    const successBanner = document.getElementById('successBanner');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Validate property type
+      const propType = document.getElementById('LEADCF2');
+      if (propType.value === '-None-') {
+        alert('Property Type cannot be none.');
+        propType.focus();
+        return;
+      }
+
+      submitBtn.disabled = true;
+
+      const formData = new FormData(form);
+
+      fetch('https://crm.zoho.com/crm/WebToLeadForm', {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        successMessage.textContent = data.actionvalue || 'Your demo has been booked!';
+        successBanner.style.display = 'flex';
+        form.reset();
+        setTimeout(() => { successBanner.style.display = 'none'; }, 5000);
+      })
+      .catch(() => {
+        alert('An error occurred. Please try again.');
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+      });
+    });
+    function getUTMParameter(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const utmFields = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
+
+        utmFields.forEach(function(param) {
+            const input = document.querySelector(`input[name='${param}']`);
+            if (input) {
+                input.value = getUTMParameter(param) || "";
+            }
+        });
+    });
+
+  </script>
+
+  <!-- Zoho Analytics Tracking -->
+  <script id="wf_anal" src="https://crm.zohopublic.com/crm/WebFormAnalyticsServeServlet?rid=d45e1eb9767f83f714b99e3536c910ea1aaf35a3fe3492b0fe2e65aeebfb04150ebd1002e9ef3866495a56d0c416a7dbgiddf8c68f1b909a226f0c65cda94d98c8635e31db332297d407cd7795f8faa25f7gide916ac2fdc41459af3c7c31899d931cd57fe5325fade0d0525519bb6fc0289c2giddb5e43da74649c8402a426113ab67e2302edc27512cb40f73507a6c1ee1e8be7&tw=8d93b28bfb700774d22d47b77f4369b029e972f46f9d5d7944b524f7d507beef"></script>
+
+</body>
+</html>
